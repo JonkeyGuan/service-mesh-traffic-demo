@@ -1,0 +1,32 @@
+extends layout-topbar
+block secondbar
+  .nav-scroller.bg-white.shadow-sm
+    nav.nav.nav-underline
+      a.nav-link(href='#').disabled You're looking at
+      a.nav-link(href='#').active
+        | #{board.name}
+        //span.badge.badge-pill.bg-light.align-text-bottom 0
+      //a.nav-link(href='#').disabled Just Exploring (coming soon)
+      //a.nav-link(href='#').disabled Similar to Mine (coming soon)
+block content
+  if errorAlert == true
+    .alert.alert-danger.alert-dismissible.fade.show(role='alert')
+      strong Yikes! Something went wrong... Please try again. 
+      br 
+      | The details: #{errorAlertText}
+      button.close(type='button', data-dismiss='alert', aria-label='Close')
+        span(aria-hidden='true') ×
+  // A modal error popup that we can rig via JS/JQuery events
+  #errorModal.modal.fade
+    .modal-dialog.modal-confirm
+      .modal-content
+        .modal-header
+          .icon-box
+            i.material-icons 
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+        .modal-body.text-center
+          h4 Ooops!
+          p Something went wrong loading the items. Please refresh to try again.
+          button.btn.btn-success(data-dismiss='modal') Try Again
+block append javascripts
+  script(src='/javascripts/clipboard.min.js')
