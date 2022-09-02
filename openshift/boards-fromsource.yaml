@@ -141,7 +141,7 @@ objects:
     resources: {}
     runPolicy: Serial
     source:
-      contextDir: code/boards
+      contextDir: boards #code/boards
       git:
         ref: ${GIT_BRANCH}
         uri: ${GIT_URI}
@@ -280,7 +280,7 @@ objects:
               secretKeyRef:
                 key: database-name
                 name: ${DATABASE_SERVICE_NAME}
-          image: ' '
+          image: quay.io/jonkey/mongodb-36-rhel7:1-73.1619800751
           imagePullPolicy: IfNotPresent
           livenessProbe:
             initialDelaySeconds: 30
@@ -317,18 +317,6 @@ objects:
         - name: ${DATABASE_SERVICE_NAME}-data
           persistentVolumeClaim:
             claimName: ${DATABASE_SERVICE_NAME}
-    triggers:
-    - imageChangeParams:
-        automatic: true
-        containerNames:
-        - mongodb
-        from:
-          kind: ImageStreamTag
-          name: mongodb:${MONGODB_VERSION}
-          namespace: ${MONGODB_NAMESPACE}
-        lastTriggeredImage: ""
-      type: ImageChange
-    - type: ConfigChange
 # -----------------------------------------------------------------------------
 # Parameters Section
 # -----------------------------------------------------------------------------
