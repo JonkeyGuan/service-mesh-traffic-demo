@@ -25,7 +25,7 @@ objects:
     resources: {}
     runPolicy: Serial
     source:
-      contextDir: /code/userprofile
+      contextDir: ${APPLICATION_CODE_CONTEXT_DIR}
       git:
         ref: ${APPLICATION_CODE_BRANCH}
         uri: ${APPLICATION_CODE_URI}
@@ -66,6 +66,11 @@ parameters:
   name: APPLICATION_CODE_URI
   required: true
   value: https://github.com/dudash/openshift-microservices.git
+- description: The app code context dir
+  displayName: Application code context dir
+  name: APPLICATION_CODE_CONTEXT_DIR
+  required: true
+  value: userprofile
 - description: The version to tag the app with
   displayName: app version tag
   name: APP_VERSION_TAG

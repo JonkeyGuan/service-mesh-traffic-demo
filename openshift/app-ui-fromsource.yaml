@@ -117,7 +117,7 @@ objects:
     resources: {}
     runPolicy: Serial
     source:
-      contextDir: code/app-ui
+      contextDir: app-ui #code/app-ui
       git:
         ref: ${GIT_BRANCH}
         uri: ${GIT_URI}

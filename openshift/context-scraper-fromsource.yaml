@@ -115,7 +115,7 @@ objects:
     resources: {}
     runPolicy: Serial
     source:
-      contextDir: code/context-scraper
+      contextDir: context-scraper #code/context-scraper
       git:
         ref: ${GIT_BRANCH}
         uri: ${GIT_URI}
