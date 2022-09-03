@@ -102,7 +102,7 @@ public class UserProfileResource {
     @APIResponse(responseCode = "404", description = "User Profile Not Found")      
     public Response getProfile(@PathParam("id") String id) {
         try {
-            Thread.sleep(10000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
 
         }
